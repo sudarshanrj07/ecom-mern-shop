@@ -4,11 +4,10 @@ import { User } from "../models/User.mjs";
 import { generateToken } from "../tokenGenerate.mjs";
 import { userAuth } from "../middleware/auth.mjs";
 
-
-const userRouter = Router();
+const router = Router();
 
 //user login
-userRouter.post(
+router.post(
 	"/login",
 	AsyncHandler(async (req, res) => {
 		const { email, password } = req.body;
@@ -30,7 +29,7 @@ userRouter.post(
 );
 
 //user register
-userRouter.post(
+router.post(
 	"/",
 	AsyncHandler(async (req, res) => {
 		const { email, password, name } = req.body;
@@ -61,7 +60,7 @@ userRouter.post(
 );
 
 //profile route
-userRouter.get(
+router.get(
 	"/profile",
 	userAuth,
 	AsyncHandler(async (req, res) => {
@@ -82,7 +81,7 @@ userRouter.get(
 );
 
 //profile update route
-userRouter.put(
+router.put(
 	"/profile",
 	userAuth,
 	AsyncHandler(async (req, res) => {
@@ -109,4 +108,4 @@ userRouter.put(
 	})
 );
 
-export default userRouter;
+export default router;
