@@ -4,6 +4,7 @@ import { User } from "../models/User.mjs";
 import { generateToken } from "../tokenGenerate.mjs";
 import { userAuth } from "../middleware/auth.mjs";
 
+
 const userRouter = Router();
 
 //user login
@@ -64,7 +65,7 @@ userRouter.get(
 	"/profile",
 	userAuth,
 	AsyncHandler(async (req, res) => {
-		const { user: _id } = req;
+		const { _id } = req.user;
 		const findUser = await User.findById(_id);
 		if (!findUser) {
 			res.status(404);
@@ -76,6 +77,34 @@ userRouter.get(
 			email: findUser.email,
 			isAdmin: findUser.isAdmin,
 			createdAt: findUser.createdAt,
+		});
+	})
+);
+
+//profile update route
+userRouter.put(
+	"/profile",
+	userAuth,
+	AsyncHandler(async (req, res) => {
+		const { name, email, password } = req.body;
+		const findUser = await User.findById(req.user.id);
+		if (!findUser) {
+			res.status(404);
+			throw new Error("User not found");
+		}
+		findUser.name = name || findUser.name;
+		findUser.email = email || findUser.email;
+
+		if (password) findUser.password = password;
+		const updatedUser = await findUser.save();
+
+		res.json({
+			_id: updatedUser._id,
+			name: updatedUser.name,
+			email: updatedUser.email,
+			isAdmin: updatedUser.isAdmin,
+			createdAt: updatedUser.createdAt,
+			token: generateToken(updatedUser._id),
 		});
 	})
 );
