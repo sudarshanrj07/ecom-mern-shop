@@ -1,9 +1,12 @@
 import { Router } from "express";
 import AsyncHandler from "express-async-handler";
 import { User } from "../models/User.mjs";
+import { generateToken } from "../tokenGenerate.mjs";
+import { userAuth } from "../middleware/auth.mjs";
 
 const userRouter = Router();
 
+//user login
 userRouter.post(
 	"/login",
 	AsyncHandler(async (req, res) => {
@@ -15,7 +18,7 @@ userRouter.post(
 				name: findUser.name,
 				email: findUser.email,
 				isAdmin: findUser.isAdmin,
-				token: null,
+				token: generateToken(findUser._id),
 				createdAt: findUser.createdAt,
 			});
 		} else {
@@ -25,6 +28,7 @@ userRouter.post(
 	})
 );
 
+//user register
 userRouter.post(
 	"/",
 	AsyncHandler(async (req, res) => {
@@ -51,6 +55,27 @@ userRouter.post(
 			email: newUser.email,
 			isAdmin: newUser.isAdmin,
 			createdAt: newUser.createdAt,
+		});
+	})
+);
+
+//profile route
+userRouter.get(
+	"/profile",
+	userAuth,
+	AsyncHandler(async (req, res) => {
+		const { user: _id } = req;
+		const findUser = await User.findById(_id);
+		if (!findUser) {
+			res.status(404);
+			throw new Error("User not found");
+		}
+		res.json({
+			_id: findUser._id,
+			name: findUser.name,
+			email: findUser.email,
+			isAdmin: findUser.isAdmin,
+			createdAt: findUser.createdAt,
 		});
 	})
 );
