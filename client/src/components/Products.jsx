@@ -1,4 +1,14 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-reduce";
+import { productListAction } from "../Redux/Actions/Product";
 export const Products = () => {
+	const dispatch = useDispatch();
+	const productListReducer = useSelector((state) => state.productListReducer);
+	const { loading, error, products, page, totalPages } = productListReducer;
+
+	useEffect(() => {
+		dispatch(productListAction());
+	}, [dispatch]); //41:55
 	return (
 		<section class="text-gray-600 body-font">
 			<div class="container px-5 py-24 mx-auto">
