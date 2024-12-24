@@ -25,4 +25,36 @@ router.get(
 	})
 );
 
+router.post(
+	"/",
+	asyncHandler(async (req, res) => {
+		const { name, image, description, price, countInStock, rating, numReview } =
+			req.body;
+		const prodcut = await Product.create({
+			name,
+			image,
+			description,
+			rating,
+			numReview,
+			price,
+			countInStock,
+		});
+		if (!prodcut) {
+			res.status(400);
+			throw new Error("Invalid user data");
+		}
+		res
+			.status(200)
+			.json({
+				name,
+				image,
+				description,
+				rating,
+				numReview,
+				price,
+				countInStock,
+			});
+	})
+);
+
 export default router;

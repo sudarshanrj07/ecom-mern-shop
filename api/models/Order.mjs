@@ -21,7 +21,7 @@ const orderSchema = new mongoose.Schema(
 			city: { type: String, required: true },
 			pincode: { type: String, required: true },
 			state: { type: String, required: true },
-			country: { ype: String, required: true },
+			country: { type: String, required: true },
 		},
 		paymentMethod: { type: String, required: true, default: "Paypal" },
 		paymentResult: {
@@ -47,7 +47,6 @@ const orderSchema = new mongoose.Schema(
 		},
 		isPaid: {
 			type: Boolean,
-			required: true,
 			default: false,
 		},
 		paidAt: {
@@ -55,7 +54,6 @@ const orderSchema = new mongoose.Schema(
 		},
 		isDelivered: {
 			type: Boolean,
-			required: true,
 			default: false,
 		},
 		deliveredAt: {
