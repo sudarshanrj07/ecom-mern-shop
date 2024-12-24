@@ -1,9 +1,3 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-
-import { Layout } from "./layouts/Layouts";
-import { Products } from "./components/Products";
 import {
 	BrowserRouter as Router,
 	Routes,
@@ -18,7 +12,7 @@ function App() {
 			<Router>
 				<Routes>
 					<Route exact path="/" element={<Home />} />
-					<Route exact path="/detail" element={<ProductDetail />} />
+					<Route exact path="/products/:id" element={<ProductDetail />} />
 				</Routes>
 			</Router>
 		</>

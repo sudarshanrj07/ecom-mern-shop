@@ -43,17 +43,15 @@ router.post(
 			res.status(400);
 			throw new Error("Invalid user data");
 		}
-		res
-			.status(200)
-			.json({
-				name,
-				image,
-				description,
-				rating,
-				numReview,
-				price,
-				countInStock,
-			});
+		res.status(200).json({
+			name,
+			image,
+			description,
+			rating,
+			numReview,
+			price,
+			countInStock,
+		});
 	})
 );
 
