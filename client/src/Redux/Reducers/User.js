@@ -10,7 +10,7 @@ import {
 
 //User login
 export const userLoginReducer = (state = {}, action) => {
-	switch (key) {
+	switch (action.type) {
 		case USER_LOGIN_REQ:
 			return { loading: true };
 		case USER_LOGIN_REQ_SUCCESS:
@@ -27,7 +27,7 @@ export const userLoginReducer = (state = {}, action) => {
 
 //User register
 export const userRegisterReducer = (state = {}, action) => {
-	switch (key) {
+	switch (action.type) {
 		case USER_REGISTER_REQ:
 			return { loading: true };
 		case USER_REGISTER_SUCCESS:

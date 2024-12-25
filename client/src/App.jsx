@@ -8,15 +8,26 @@ import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import { useSelector } from "react-redux";
 function App() {
+	const userLoginReducer = useSelector((state) => state.userLoginReducer);
+	const { userInfo } = userLoginReducer;
 	return (
 		<>
 			<Router>
 				<Routes>
 					<Route exact path="/" element={<Home />} />
 					<Route exact path="/products/:id" element={<ProductDetail />} />
-					<Route exact path="/login" element={<Login />} />
-					<Route exact path="/register" element={<Register />} />
+					<Route
+						exact
+						path="/login"
+						element={userInfo ? <Navigate to="/" /> : <Login />}
+					/>
+					<Route
+						exact
+						path="/register"
+						element={userInfo ? <Navigate to="/" /> : <Register />}
+					/>
 				</Routes>
 			</Router>
 		</>

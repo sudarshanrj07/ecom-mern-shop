@@ -8,7 +8,7 @@ function ProducDetail() {
 	const dispatch = useDispatch();
 	const productReducer = useSelector((state) => state.productReducer);
 	const { loading, error, product } = productReducer;
-	console.log(productReducer);
+
 	useEffect(() => {
 		dispatch(productAction(id));
 	}, [dispatch, id]);
@@ -40,9 +40,9 @@ function ProducDetail() {
 											<svg
 												fill="currentColor"
 												stroke="currentColor"
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												stroke-width="2"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth="2"
 												className="w-4 h-4 text-indigo-500"
 												viewBox="0 0 24 24"
 											>
@@ -51,9 +51,9 @@ function ProducDetail() {
 											<svg
 												fill="currentColor"
 												stroke="currentColor"
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												stroke-width="2"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth="2"
 												className="w-4 h-4 text-indigo-500"
 												viewBox="0 0 24 24"
 											>
@@ -62,9 +62,9 @@ function ProducDetail() {
 											<svg
 												fill="currentColor"
 												stroke="currentColor"
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												stroke-width="2"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth="2"
 												className="w-4 h-4 text-indigo-500"
 												viewBox="0 0 24 24"
 											>
@@ -73,9 +73,9 @@ function ProducDetail() {
 											<svg
 												fill="currentColor"
 												stroke="currentColor"
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												stroke-width="2"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth="2"
 												className="w-4 h-4 text-indigo-500"
 												viewBox="0 0 24 24"
 											>
@@ -84,9 +84,9 @@ function ProducDetail() {
 											<svg
 												fill="none"
 												stroke="currentColor"
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												stroke-width="2"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth="2"
 												className="w-4 h-4 text-indigo-500"
 												viewBox="0 0 24 24"
 											>
@@ -100,9 +100,9 @@ function ProducDetail() {
 											<a className="text-gray-500">
 												<svg
 													fill="currentColor"
-													stroke-linecap="round"
-													stroke-linejoin="round"
-													stroke-width="2"
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth="2"
 													className="w-5 h-5"
 													viewBox="0 0 24 24"
 												>
@@ -112,9 +112,9 @@ function ProducDetail() {
 											<a className="text-gray-500">
 												<svg
 													fill="currentColor"
-													stroke-linecap="round"
-													stroke-linejoin="round"
-													stroke-width="2"
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth="2"
 													className="w-5 h-5"
 													viewBox="0 0 24 24"
 												>
@@ -124,9 +124,9 @@ function ProducDetail() {
 											<a className="text-gray-500">
 												<svg
 													fill="currentColor"
-													stroke-linecap="round"
-													stroke-linejoin="round"
-													stroke-width="2"
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth="2"
 													className="w-5 h-5"
 													viewBox="0 0 24 24"
 												>
@@ -156,9 +156,9 @@ function ProducDetail() {
 													<svg
 														fill="none"
 														stroke="currentColor"
-														stroke-linecap="round"
-														stroke-linejoin="round"
-														stroke-width="2"
+														strokeLinecap="round"
+														strokeLinejoin="round"
+														strokeWidth="2"
 														className="w-4 h-4"
 														viewBox="0 0 24 24"
 													>
@@ -178,9 +178,9 @@ function ProducDetail() {
 										<button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
 											<svg
 												fill="currentColor"
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												stroke-width="2"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth="2"
 												className="w-5 h-5"
 												viewBox="0 0 24 24"
 											>
