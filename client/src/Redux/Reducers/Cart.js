@@ -11,8 +11,10 @@ export const cartReducer = (
 	action
 ) => {
 	switch (action.type) {
+		//TODO: fix the cart item quantity issue
 		case ADD_ITEM_TO_CART:
 			const item = action.payload;
+
 			const existItem = state.cartItems.find(
 				(cart) => cart.product === item.product
 			);
@@ -23,12 +25,12 @@ export const cartReducer = (
 						return cart.product === existItem.product ? item : cart;
 					}),
 				};
+			} else {
+				return {
+					...state,
+					cartItems: [...state.cartItems, item],
+				};
 			}
-
-			return {
-				...state,
-				cartItems: [...state.cartItems, item],
-			};
 
 		case REMOVE_ITEM_FROM_CART:
 			return {
@@ -57,6 +59,6 @@ export const cartReducer = (
 			};
 
 		default:
-			state;
+			return state;
 	}
 };
