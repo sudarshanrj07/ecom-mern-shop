@@ -19,7 +19,7 @@ export const userLoginAction = (email, password) => async (dispatch) => {
 				"Content-type": "application/json",
 			},
 		};
-		const { data } = await axios.get(
+		const { data } = await axios.post(
 			`${BASE_URL}/api/users/login`,
 			{ email, password },
 			config
