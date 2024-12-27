@@ -11,17 +11,15 @@ export const cartReducer = (
 	action
 ) => {
 	switch (action.type) {
-		//TODO: fix the cart item quantity issue
 		case ADD_ITEM_TO_CART:
 			const item = action.payload;
-
 			const existItem = state.cartItems.find(
 				(cart) => cart.product === item.product
 			);
 			if (existItem) {
 				return {
 					...state,
-					cartIems: state.cartItems.map((cart) => {
+					cartItems: state.cartItems.map((cart) => {
 						return cart.product === existItem.product ? item : cart;
 					}),
 				};
