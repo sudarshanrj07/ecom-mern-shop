@@ -9,7 +9,7 @@ import {
 } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromCartAction } from "../Redux/Actions/Cart";
+import { addToCartAction, removeFromCartAction } from "../Redux/Actions/Cart";
 
 export default function Checkout({ open, setOpen }) {
 	const dispatch = useDispatch();
@@ -19,6 +19,16 @@ export default function Checkout({ open, setOpen }) {
 	const removeFromCartHandler = (id) => {
 		dispatch(removeFromCartAction(id));
 	};
+
+	const addToCartHandler = (id, quantity) => {
+		dispatch(addToCartAction(id, quantity));
+	};
+
+	const total = cartItems.reduce(
+		(total, item) => total + item.quantity * item.price,
+		0
+	);
+
 	return (
 		<Dialog
 			open={open}
@@ -83,7 +93,25 @@ export default function Checkout({ open, setOpen }) {
 															</div>
 															<div className="flex flex-1 items-end justify-between text-sm">
 																<p className="text-gray-500">
-																	Qty {cart.quantity}
+																	Qty{" "}
+																	<select
+																		value={cart.quantity}
+																		onChange={(e) =>
+																			addToCartHandler(
+																				cart.product,
+																				Number(e.target.value)
+																			)
+																		}
+																		className="rounded ml-2 border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10"
+																	>
+																		{[...Array(cart.countInStock).keys()].map(
+																			(x) => (
+																				<option key={x + 1} value={x + 1}>
+																					{x + 1}
+																				</option>
+																			)
+																		)}
+																	</select>
 																</p>
 
 																<div className="flex">
@@ -109,7 +137,7 @@ export default function Checkout({ open, setOpen }) {
 								<div className="border-t border-gray-200 px-4 py-6 sm:px-6">
 									<div className="flex justify-between text-base font-medium text-gray-900">
 										<p>Subtotal</p>
-										<p>$262.00</p>
+										<p>{total}</p>
 									</div>
 									<p className="mt-0.5 text-sm text-gray-500">
 										Shipping and taxes calculated at checkout.
