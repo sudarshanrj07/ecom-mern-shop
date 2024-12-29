@@ -7,8 +7,8 @@ const router = Router();
 router.get(
 	"/",
 	asyncHandler(async (req, res) => {
-		const prodcuts = await Product.find({});
-		res.json(prodcuts);
+		const products = await Product.find({});
+		res.json(products);
 	})
 );
 

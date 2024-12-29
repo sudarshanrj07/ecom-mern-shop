@@ -13,7 +13,7 @@ import { BASE_URL } from "../Constants/BASE_URL";
 export const productListAction = () => async (dispatch) => {
 	try {
 		dispatch({ type: PRODUCT_LIST_REQ });
-
+		
 		const { data } = await axios.get(`${BASE_URL}/api/products`);
 		dispatch({ type: PRODUCT_LIST_REQ_SUCCESS, payload: data });
 	} catch (error) {
@@ -31,7 +31,7 @@ export const productAction = (id) => async (dispatch) => {
 	try {
 		dispatch({ type: PRODUCT_DETAIL_REQ });
 		const { data } = await axios.get(`${BASE_URL}/api/products/${id}`);
-		
+
 		dispatch({ type: PRODUCT_DETAIL_REQ_SUCCESS, payload: data });
 	} catch (error) {
 		dispatch({
