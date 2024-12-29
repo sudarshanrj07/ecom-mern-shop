@@ -24,7 +24,7 @@ router.post(
 			res.status(400);
 			throw new Error("No order items found!");
 		}
-		const newOrder = await Order({
+		const newOrder = new Order({
 			orderItems,
 			shippingAddress,
 			paymentMethods,
@@ -39,7 +39,7 @@ router.post(
 			res.status(404);
 			throw new Error("Order failed! please try again");
 		}
-		const saveOrder = newOrder.save();
+		const saveOrder = await newOrder.save();
 
 		if (!saveOrder) {
 			res.status(404);
@@ -106,7 +106,7 @@ router.get(
 	userAuth,
 	asyncHandler(async (req, res) => {
 		const { id } = req.params;
-		const order = await Order.findById(id).populate("user", "email");
+		const order = await Order.findById(id).populate("user", "name email");
 		if (!order) {
 			res.status(404);
 			throw new Error("Order doesnt exists");

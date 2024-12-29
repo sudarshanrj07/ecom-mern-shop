@@ -14,7 +14,9 @@ export const Products = () => {
 	return (
 		<div>
 			{loading ? (
-				<h1>loading</h1>
+				<div className="flex items-center justify-center min-h-screen">
+					<div className="rounded-md h-12 w-12 border-4 border-t-4 border-blue-500 animate-spin"></div>
+				</div>
 			) : error ? (
 				<h1>{error}</h1>
 			) : (
