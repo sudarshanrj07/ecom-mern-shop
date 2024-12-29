@@ -1,6 +1,6 @@
 import { Router } from "express";
 import AsyncHandler from "express-async-handler";
-import { User } from "../models/User.mjs";
+import { User } from "../models/user.mjs";
 import { generateToken } from "../tokenGenerate.mjs";
 import { userAuth } from "../middleware/auth.mjs";
 
