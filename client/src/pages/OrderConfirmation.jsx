@@ -14,7 +14,7 @@ export default function OrderConfirmation() {
 
 	const orderDetailReducer = useSelector((state) => state.orderDetailReducer);
 	const { order, loading } = orderDetailReducer;
-	console.log(order);
+	
 	// Confetti state
 	const [confettiActive, setConfettiActive] = useState(true);
 
