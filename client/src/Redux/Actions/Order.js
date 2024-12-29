@@ -97,7 +97,7 @@ export const orderDetailAction = (id) => async (dispatch, getState) => {
 };
 
 //Order List action
-export const orderListAction = (id) => async (dispatch, getState) => {
+export const orderListAction = () => async (dispatch, getState) => {
 	try {
 		dispatch({ type: ORDER_LIST_REQ });
 
@@ -107,8 +107,9 @@ export const orderListAction = (id) => async (dispatch, getState) => {
 				Authorization: `Bearer ${userInfo.token}`,
 			},
 		};
-		const { data } = await axios.post(`${BASE_URL}/api/orders/`, config);
-
+		console.log("inside order list", config);
+		const { data } = await axios.get(`${BASE_URL}/api/orders/`, config);
+		console.log(data);
 		dispatch({ type: ORDER_LIST_REQ_SUCCESS, payload: data });
 	} catch (error) {
 		const message =

@@ -89,8 +89,7 @@ router.get(
 	"/",
 	userAuth,
 	asyncHandler(async (req, res) => {
-		const { _id } = req.user;
-		const orders = await Order.find({ _id }.sort({ _id: -1 }));
+		const orders = await Order.find({ user: req.user._id }).sort({ _id: -1 });
 		if (!orders) {
 			res.status(404);
 			throw new Error("No orders found");
