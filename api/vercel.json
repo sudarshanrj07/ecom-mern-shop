@@ -1,0 +1,17 @@
+{
+	"version": 1,
+	"name": "mern-shop-api",
+
+	"builds": [
+		{
+			"src": "index.mjs",
+			"use": "@vercel/node"
+		}
+	],
+	"routes": [
+		{
+			"src": "/(.*)",
+			"dest": "/index.mjs"
+		}
+	]
+}
