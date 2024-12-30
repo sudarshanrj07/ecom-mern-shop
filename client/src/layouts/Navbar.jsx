@@ -47,7 +47,10 @@ const Navbar = () => {
 							</Link>
 						) : (
 							<>
-								<UserDropdown logoutHandler={logoutHandler}></UserDropdown>
+								<UserDropdown
+									userName={userInfo.name}
+									logoutHandler={logoutHandler}
+								></UserDropdown>
 								<button
 									data-collapse-toggle="navbar-cta"
 									type="button"

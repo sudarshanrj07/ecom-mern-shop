@@ -3,9 +3,9 @@
 import { Dropdown } from "flowbite-react";
 import { Link } from "react-router-dom";
 
-export function UserDropdown({ logoutHandler }) {
+export function UserDropdown({ userName, logoutHandler }) {
 	return (
-		<Dropdown label="User" dismissOnClick={false}>
+		<Dropdown label={userName} dismissOnClick={false}>
 			<Link to="/order-history">
 				<Dropdown.Item>Order History</Dropdown.Item>
 			</Link>
