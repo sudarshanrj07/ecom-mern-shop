@@ -10,12 +10,12 @@ export const Footer = () => {
 						className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
 					>
 						<img
-							src="https://flowbite.com/docs/images/logo.svg"
+							src="https://www.svgrepo.com/show/523736/shop.svg"
 							className="h-8"
-							alt="Flowbite Logo"
+							alt="Shop Logo"
 						/>
 						<span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-							Flowbite
+							MernifyShop
 						</span>
 					</Link>
 					<ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
@@ -45,7 +45,7 @@ export const Footer = () => {
 				<span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
 					© 2023{" "}
 					<Link to="/" className="hover:underline">
-						Flowbite™
+						MernifyShop
 					</Link>
 					. All Rights Reserved.
 				</span>

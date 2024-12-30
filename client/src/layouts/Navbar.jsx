@@ -31,10 +31,10 @@ const Navbar = () => {
 						<img
 							src="https://www.svgrepo.com/show/523736/shop.svg"
 							className="h-8"
-							alt="Flowbite Logo"
+							alt="Shop Logo"
 						/>
 						<span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-							MERN Shop
+							MernifyShop
 						</span>
 					</Link>
 					<div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
