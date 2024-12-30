@@ -16,7 +16,9 @@ export default function OrderHistory() {
 		<>
 			<Layout>
 				{loading ? (
-					<></>
+					<div className="flex justify-center min-h-screen">
+						<div className="rounded-md h-12 w-12 border-4 border-t-4 border-blue-500 animate-spin"></div>
+					</div>
 				) : (
 					<section className="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
 						<div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
